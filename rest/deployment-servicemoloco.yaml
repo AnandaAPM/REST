@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-moloco
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: service-moloco
+  template:
+    metadata:
+      labels:
+        name: service-moloco
+    spec:
+      nodeName: masternode
+      containers:
+      - name: container-servicemoloco
+        image: images-servicemoloco
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 8080
